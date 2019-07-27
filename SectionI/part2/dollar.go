@@ -5,6 +5,8 @@ type Dollar struct {
 	ammount int
 }
 
-func (d *Dollar) times(n int) {
-	d.ammount *= n
+func (d *Dollar) times(n int) *Dollar {
+	return &Dollar{
+		ammount: d.ammount * n,
+	}
 }

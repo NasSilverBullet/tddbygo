@@ -6,4 +6,5 @@ type Dollar struct {
 }
 
 func (d *Dollar) times(n int) {
+	d.ammount *= n
 }

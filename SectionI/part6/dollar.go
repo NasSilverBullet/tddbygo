@@ -22,8 +22,3 @@ func (d *Dollar) Times(m int) *Dollar {
 		},
 	}
 }
-
-// Equals is a comparison function
-func (d *Dollar) Equals(td *Dollar) bool {
-	return d.amount == td.amount
-}

@@ -1,26 +1,22 @@
 package dollar
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestMultiplication(t *testing.T) {
-	five := &Dollar{
-		ammount: 5,
+	five := NewDollar(5)
+	if expected, actual := NewDollar(10), five.times(2); *expected != *actual {
+		t.Errorf("product wont %v but got %v", expected, actual)
 	}
-	product := five.times(2)
-	if expected, actual := 10, product.ammount; expected != actual {
-		t.Errorf("five.amount wont %d but got %d", expected, actual)
-	}
-	product = five.times(3)
-	if expected, actual := 15, product.ammount; expected != actual {
-		t.Errorf("five.amount wont %d but got %d", expected, actual)
+	if expected, actual := NewDollar(15), five.times(3); *expected != *actual {
+		t.Errorf("product wont %v but got %v", expected, actual)
 	}
 
 }
 
 func TestEquality(t *testing.T) {
-	d := &Dollar{
-		ammount: 5,
-	}
+	d := NewDollar(5)
 	if expected, actual := true, d.equals(&Dollar{ammount: 5}); expected != actual {
 		t.Errorf("Dollar{5}.equals(Dollar{5} wont %t but got %t", expected, actual)
 	}

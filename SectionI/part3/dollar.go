@@ -2,15 +2,17 @@ package dollar
 
 // Dollar is dollar
 type Dollar struct {
-	ammount int
+	amount int
 }
 
-func (d *Dollar) times(n int) *Dollar {
+// Times multiplier dollar
+func (d *Dollar) Times(m int) *Dollar {
 	return &Dollar{
-		ammount: d.ammount * n,
+		amount: d.amount * m,
 	}
 }
 
-func (d *Dollar) equals(targetd *Dollar) bool {
-	return d.ammount == targetd.ammount
+// Equals is a comparison function
+func (d *Dollar) Equals(td *Dollar) bool {
+	return d.amount == td.amount
 }

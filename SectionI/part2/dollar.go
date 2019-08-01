@@ -2,11 +2,12 @@ package dollar
 
 // Dollar is dollar
 type Dollar struct {
-	ammount int
+	amount int
 }
 
-func (d *Dollar) times(n int) *Dollar {
+// Times multiplier dollar
+func (d *Dollar) Times(m int) *Dollar {
 	return &Dollar{
-		ammount: d.ammount * n,
+		amount: d.amount * m,
 	}
 }

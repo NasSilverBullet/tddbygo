@@ -3,11 +3,9 @@ package dollar
 import "testing"
 
 func TestMultiplication(t *testing.T) {
-	five := Dollar{
-		ammount: 5,
-	}
-	five.times(2)
-	if expected, actual := 10, five.ammount; expected != actual {
+	five := Dollar{amount: 5}
+	five.Times(2)
+	if expected, actual := 10, five.amount; expected != actual {
 		t.Errorf("five.amount wont %d but got %d", expected, actual)
 	}
 }

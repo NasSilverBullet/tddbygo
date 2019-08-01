@@ -6,10 +6,10 @@ import (
 
 func TestMultiplication(t *testing.T) {
 	five := NewDollar(5)
-	if expected, actual := NewDollar(10), five.times(2); *expected != *actual {
+	if expected, actual := NewDollar(10), five.Times(2); !expected.Equals(actual) {
 		t.Errorf("product wont %v but got %v", expected, actual)
 	}
-	if expected, actual := NewDollar(15), five.times(3); *expected != *actual {
+	if expected, actual := NewDollar(15), five.Times(3); !expected.Equals(actual) {
 		t.Errorf("product wont %v but got %v", expected, actual)
 	}
 
@@ -17,10 +17,10 @@ func TestMultiplication(t *testing.T) {
 
 func TestEquality(t *testing.T) {
 	d := NewDollar(5)
-	if expected, actual := true, d.equals(&Dollar{ammount: 5}); expected != actual {
+	if expected, actual := true, d.Equals(&Dollar{amount: 5}); expected != actual {
 		t.Errorf("Dollar{5}.equals(Dollar{5} wont %t but got %t", expected, actual)
 	}
-	if expected, actual := false, d.equals(&Dollar{ammount: 6}); expected != actual {
+	if expected, actual := false, d.Equals(&Dollar{amount: 6}); expected != actual {
 		t.Errorf("Dollar{5}.equals(Dollar{5} wont %t but got %t", expected, actual)
 	}
 }

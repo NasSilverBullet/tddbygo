@@ -6,6 +6,7 @@ type Money struct {
 }
 
 // Equals is a comparison function
+// TODO 埋め込み先の型の情報が含まれているので取り除きたい
 func (m *Money) Equals(i interface{}) bool {
 	mt := new(Money)
 	switch i.(type) {

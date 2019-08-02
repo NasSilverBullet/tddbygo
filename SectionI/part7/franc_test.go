@@ -12,13 +12,3 @@ func TestFrancMultiplication(t *testing.T) {
 	}
 
 }
-
-func TestFrancEquality(t *testing.T) {
-	f := NewFranc(5)
-	if expected, actual := true, f.Equals(NewFranc(5)); expected != actual {
-		t.Errorf("NewFranc(5).Equals(NewFranc(5)) wont %t but got %t", expected, actual)
-	}
-	if expected, actual := false, f.Equals(NewFranc(6)); expected != actual {
-		t.Errorf("NewFranc(5).Equals(NewFranc(6)) wont %t but got %t", expected, actual)
-	}
-}

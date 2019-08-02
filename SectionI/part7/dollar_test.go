@@ -14,13 +14,3 @@ func TestDollarMultiplication(t *testing.T) {
 	}
 
 }
-
-func TestDollarEquality(t *testing.T) {
-	d := NewDollar(5)
-	if expected, actual := true, d.Equals(NewDollar(5)); expected != actual {
-		t.Errorf("NewDollar(5).Equals(NewDollar(5)) wont %t but got %t", expected, actual)
-	}
-	if expected, actual := false, d.Equals(NewDollar(6)); expected != actual {
-		t.Errorf("NewDollar(5).Equals(NewDollar(6)) wont %t but got %t", expected, actual)
-	}
-}

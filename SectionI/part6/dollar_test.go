@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestMultiplication(t *testing.T) {
+func TestDollarMultiplication(t *testing.T) {
 	five := NewDollar(5)
 	if expected, actual := NewDollar(10), five.Times(2); !expected.Equals(actual) {
 		t.Errorf("NewDollar(5).Times(2) wont %v but got %v", expected, actual)

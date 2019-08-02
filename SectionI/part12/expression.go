@@ -1,9 +1,11 @@
 package money
 
+// Expression money's expression
 type Expression interface {
 	Plus(*Money) Expression
 }
 
-func (m *Money) Plus(tm *Money) Expression {
-	return NewMoney(m.amount+tm.amount, m.currency)
+// Plus is money'plus
+func (m *Money) Plus(added *Money) Expression {
+	return NewMoney(m.amount+added.amount, m.currency)
 }

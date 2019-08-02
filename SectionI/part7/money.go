@@ -7,6 +7,8 @@ type Money struct {
 
 // Equals is a comparison function
 // TODO 埋め込み先の型の情報が含まれているので取り除きたい
+// TODO 現状の実装ではレシーバの埋め込み先の方が取得できないため、
+// 本章で実装した型比較は実装できない 実装したい
 func (m *Money) Equals(i interface{}) bool {
 	tm := new(Money)
 	switch i.(type) {

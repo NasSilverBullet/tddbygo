@@ -6,6 +6,6 @@ type Expression interface {
 }
 
 // Plus is money'plus
-func (m *Money) Plus(added *Money) Expression {
-	return NewMoney(m.amount+added.amount, m.currency)
+func (m *Money) Plus(addend *Money) Expression {
+	return NewMoney(m.amount+addend.amount, m.currency)
 }

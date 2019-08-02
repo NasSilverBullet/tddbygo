@@ -8,16 +8,16 @@ type Money struct {
 // Equals is a comparison function
 // TODO 埋め込み先の型の情報が含まれているので取り除きたい
 func (m *Money) Equals(i interface{}) bool {
-	mt := new(Money)
+	tm := new(Money)
 	switch i.(type) {
 	case *Dollar:
-		mt.amount = i.(*Dollar).amount
+		tm.amount = i.(*Dollar).amount
 	case *Franc:
-		mt.amount = i.(*Franc).amount
+		tm.amount = i.(*Franc).amount
 	default:
 		return false
 	}
-	if m.amount != mt.amount {
+	if m.amount != tm.amount {
 		return false
 	}
 	return true

@@ -27,6 +27,12 @@ func (m *Money) Times(multiplier int) *Money {
 	return NewMoney(m.amount*multiplier, m.currency)
 }
 
-func (m *Money) reduce(to string) *Money {
+// Plus is money's plus
+func (m *Money) Plus(added *Money) Expression {
+	return NewSum(m, added)
+}
+
+// Reduce is
+func (m *Money) Reduce(to string) *Money {
 	return m
 }

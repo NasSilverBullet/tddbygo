@@ -14,10 +14,10 @@ func (b *Bank) Reduce(e Expression, to string) *Money {
 	switch e.(type) {
 	case *Money:
 		m := e.(*Money)
-		return m.reduce(to)
-	case Sum:
-		sum := e.(Sum)
-		return sum.reduce(to)
+		return m.Reduce(to)
+	case *Sum:
+		sum := e.(*Sum)
+		return sum.Reduce(to)
 	default:
 		return nil
 	}

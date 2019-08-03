@@ -26,8 +26,3 @@ func (m *Money) Equals(tm *Money) bool {
 func (m *Money) Times(multiplier int) *Money {
 	return NewMoney(m.amount*multiplier, m.currency)
 }
-
-// Plus is money'plus
-func (m *Money) Plus(addend *Money) Expression {
-	return NewMoney(m.amount+addend.amount, m.currency)
-}

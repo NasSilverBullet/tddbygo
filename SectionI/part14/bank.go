@@ -12,7 +12,7 @@ func NewBank() *Bank {
 }
 
 // Reduce is exchange Expression
-func (b *Bank) Reduce(e Expression, to string) Expression {
+func (b *Bank) Reduce(e Expression, to string) *Money {
 	switch e.(type) {
 	case *Sum:
 		sum := e.(*Sum)

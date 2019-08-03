@@ -15,7 +15,7 @@ func NewSum(au, ad *Money) Expression {
 }
 
 // Reduce implements Expression
-func (sum *Sum) Reduce(b *Bank, to string) Expression {
+func (sum *Sum) Reduce(b *Bank, to string) *Money {
 	return NewMoney(sum.augend.amount+sum.addend.amount, to)
 }
 

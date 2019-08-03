@@ -12,11 +12,7 @@ func NewMoney(a int, c string) *Money {
 }
 
 // Equals is a comparison function
-func (m *Money) Equals(e Expression) bool {
-	tm, ok := e.(*Money)
-	if !ok {
-		return false
-	}
+func (m *Money) Equals(tm *Money) bool {
 	if m.currency != tm.currency {
 		return false
 	}
@@ -37,7 +33,7 @@ func (m *Money) Plus(added *Money) Expression {
 }
 
 // Reduce implements Expression
-func (m *Money) Reduce(b *Bank, to string) Expression {
+func (m *Money) Reduce(b *Bank, to string) *Money {
 	rate := b.Rate(m.currency, to)
 	return NewMoney(m.amount/rate, to)
 }

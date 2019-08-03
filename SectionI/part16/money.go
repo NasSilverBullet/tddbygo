@@ -26,3 +26,14 @@ func (m *Money) Equals(tm *Money) bool {
 func (m *Money) Times(multiplier int) *Money {
 	return NewMoney(m.amount*multiplier, m.currency)
 }
+
+// Plus implements Expression
+func (m *Money) Plus(added Expression) Expression {
+	return NewSum(m, added)
+}
+
+// Reduce implements Expression
+func (m *Money) Reduce(b *Bank, to string) *Money {
+	rate := b.Rate(m.currency, to)
+	return NewMoney(m.amount/rate, to)
+}

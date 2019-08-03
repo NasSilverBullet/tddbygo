@@ -7,11 +7,19 @@ type Sum struct {
 }
 
 // NewSum is sum constructor
-func NewSum(au, ad *Money) Sum {
-	return Sum{
+func NewSum(au, ad *Money) Expression {
+	return &Sum{
 		augend: au,
 		addend: ad,
 	}
 }
 
+// Reduce implements Expression
+func (sum *Sum) Reduce(b *Bank, to string) Expression {
+	return NewMoney(sum.augend.amount+sum.addend.amount, to)
+}
 
+// Plus implements Expression
+func (sum *Sum) Plus(m *Money) Expression {
+	return NewSum(nil, nil)
+}

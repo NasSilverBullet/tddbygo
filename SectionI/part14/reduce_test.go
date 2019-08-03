@@ -15,7 +15,7 @@ func TestSimpleAddition(t *testing.T) {
 func TestPlusReturnSum(t *testing.T) {
 	five := NewDollar(5)
 	r := five.Plus(five)
-	sum := r.(Sum)
+	sum := r.(*Sum)
 	if expected, actual := five, sum.augend; !expected.Equals(actual) {
 		t.Errorf("NewDollar(5).Plus(NewDollar(5)).(Sum).augend wont %v but got %v", expected, actual)
 	}

@@ -15,16 +15,17 @@ func TestEquality(t *testing.T) {
 }
 
 func TestMultiplication(t *testing.T) {
-	if expected, actual := NewDollar(10), NewDollar(5).Times(2); !expected.Equals(actual) {
+	b := NewBank()
+	if expected, actual := NewDollar(10), b.Reduce(NewDollar(5).Times(2), "USD"); !expected.Equals(actual) {
 		t.Errorf("NewDollar(5).Times(2) wont %v but got %v", expected, actual)
 	}
-	if expected, actual := NewDollar(15), NewDollar(5).Times(3); !expected.Equals(actual) {
+	if expected, actual := NewDollar(15), b.Reduce(NewDollar(5).Times(3), "USD"); !expected.Equals(actual) {
 		t.Errorf("NewDollar(5).Times(3) wont %v but got %v", expected, actual)
 	}
-	if expected, actual := NewFranc(10), NewFranc(5).Times(2); !expected.Equals(actual) {
+	if expected, actual := NewFranc(10), b.Reduce(NewFranc(5).Times(2), "CHF"); !expected.Equals(actual) {
 		t.Errorf("NewFranc(5).Times(2) wont %v but got %v", expected, actual)
 	}
-	if expected, actual := NewFranc(15), NewFranc(5).Times(3); !expected.Equals(actual) {
+	if expected, actual := NewFranc(15), b.Reduce(NewFranc(5).Times(3), "CHF"); !expected.Equals(actual) {
 		t.Errorf("NewFranc(5).Times(3) wont %v but got %v", expected, actual)
 	}
 }
